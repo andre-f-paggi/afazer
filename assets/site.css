@@ -6,14 +6,14 @@ body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Quicksand','N
 .wrap{max-width:920px;margin:0 auto;padding:0 20px}
 header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0}
 header.top img{height:36px;width:auto;display:block}
-.logo-dark{display:none}
-@media (prefers-color-scheme:dark){.logo-light{display:none}.logo-dark{display:block}}
+header.top img.logo-dark{display:none}
+@media (prefers-color-scheme:dark){header.top img.logo-light{display:none}header.top img.logo-dark{display:block}}
 nav{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 nav a,.lang button{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;padding:8px 12px;border-radius:999px;border:0;background:transparent;font-family:inherit;cursor:pointer}
 nav a:hover,.lang button:hover{background:var(--soft)}
 .lang button[aria-pressed="true"]{background:var(--soft)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--accent-strong);outline-offset:2px}
-.hero{padding:40px 0 28px;display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center}
+.hero{padding:40px 0 28px}
 .hero h1{font-size:clamp(38px,7vw,64px);line-height:1.05;margin:0 0 14px;font-weight:700;letter-spacing:-.01em}
 .hero h1 em{font-style:normal;color:var(--accent-strong)}
 .hero p{font-size:19px;color:var(--muted);margin:0 0 20px;max-width:34ch}
