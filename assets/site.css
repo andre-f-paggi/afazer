@@ -6,8 +6,6 @@ body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Quicksand','N
 .wrap{max-width:920px;margin:0 auto;padding:0 20px}
 header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0}
 header.top img{height:36px;width:auto;display:block}
-header.top img.logo-dark{display:none}
-@media (prefers-color-scheme:dark){header.top img.logo-light{display:none}header.top img.logo-dark{display:block}}
 nav{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 nav a,.lang button{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;padding:8px 12px;border-radius:999px;border:0;background:transparent;font-family:inherit;cursor:pointer}
 nav a:hover,.lang button:hover{background:var(--soft)}
