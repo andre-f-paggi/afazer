@@ -7,7 +7,7 @@
 <meta name="description" content="Como o Afazer trata os seus dados: o que fica no aparelho, o que vai ao servidor, o que passa pela IA e pelo Google Agenda.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=3">
+<link rel="stylesheet" href="assets/site.css?v=4">
 </head>
 <body>
 <div class="wrap">
@@ -15,7 +15,7 @@
     <a href="./" aria-label="Afazer"><picture><source srcset="assets/afazer-lockup-dark.svg" media="(prefers-color-scheme: dark)"><img src="assets/afazer-lockup.svg" alt="Afazer"></picture></a>
     <nav>
       <a href="./"><span lang-block="pt">Início</span><span lang-block="en">Home</span></a>
-      <span class="lang"><button type="button" data-set="pt" aria-pressed="true">PT</button><button type="button" data-set="en" aria-pressed="false">EN</button></span>
+      <button type="button" class="theme" title="Tema / Theme" aria-label="Alternar tema claro/escuro / Toggle light/dark theme" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button><span class="lang"><button type="button" data-set="pt" aria-pressed="true">PT</button><button type="button" data-set="en" aria-pressed="false">EN</button></span>
     </nav>
   </header>
 
@@ -107,7 +107,16 @@
 function set(l){h.setAttribute('data-lang',l);h.lang=l==='pt'?'pt-BR':'en';b.forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.set===l))});try{localStorage.setItem('lang',l)}catch(e){}}
 var s=null;try{s=localStorage.getItem('lang')}catch(e){}
 set(s||((navigator.language||'pt').toLowerCase().indexOf('pt')===0?'pt':'en'));
-b.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.set)})});})();
+b.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.set)})});
+var tb=document.querySelector('.theme'),src=document.querySelector('picture source'),im=document.querySelector('picture img');
+var LG='assets/afazer-lockup.svg',DG='assets/afazer-lockup-dark.svg';
+function isDark(){var t=h.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+function sync(){var t=h.getAttribute('data-theme');if(t){src.media='not all';im.src=t==='dark'?DG:LG}tb.setAttribute('aria-pressed',String(isDark()))}
+var st=null;try{st=localStorage.getItem('theme')}catch(e){}
+if(st==='dark'||st==='light')h.setAttribute('data-theme',st);
+sync();
+tb.addEventListener('click',function(){var n=isDark()?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}sync()});
+})();
 </script>
 </body>
 </html>
