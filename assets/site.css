@@ -13,7 +13,7 @@ nav a,.lang button{color:var(--ink);text-decoration:none;font-weight:600;font-si
 nav a:hover,.lang button:hover{background:var(--soft)}
 .lang button[aria-pressed="true"]{background:var(--soft)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--accent-strong);outline-offset:2px}
-.hero{padding:40px 0 28px}
+.hero{padding:40px 0 28px;display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center}
 .hero h1{font-size:clamp(38px,7vw,64px);line-height:1.05;margin:0 0 14px;font-weight:700;letter-spacing:-.01em}
 .hero h1 em{font-style:normal;color:var(--accent-strong)}
 .hero p{font-size:19px;color:var(--muted);margin:0 0 20px;max-width:34ch}
